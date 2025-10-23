@@ -1,0 +1,422 @@
+<header class="app-header">
+  <div class="header-left">
+    <!-- <img src="‪assets/companylogo.jpg" alt="Company Logo" class="app-logo" /> -->
+    <h1 class="app-title">ClaimSearch</h1>
+  </div>
+
+  <nav class="header-menu">
+    <button>🔍 Search</button>
+    <button>📦 Batch Approval</button>
+    <button>📄 Document Search</button>
+    <button>✉️ New Mail</button>
+    <button>🅿️ Parking Lot</button>
+    <button>⚙️ Rules Configuration</button>
+    <button>🔗 Link Documents</button>
+    <button>🧾 DMS Admin</button>
+    <button class="id-btn">#255001994</button>
+  </nav>
+</header>
+
+<form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+  
+   <div class="claimant-name-section">
+					<div class="quick-search">
+    					<label for="quickSearch">Quick Search:</label>
+    					<select id="quickSearch" formControlName="quickSearch" >
+   						
+      					<option value="claimNumber">Claim Number</option>
+      					<option value="policyNumber">Policy Number</option>
+      					<option value="employeeNumber">Employee Number</option>
+    					</select> 
+    				</div>  
+    		 <div class="claimant-name"> 		
+    				<label>Claimant Name:</label>
+    				<div class="name-fields">
+      				<input type="text" placeholder="First " formControlName="claimantFirstName" >
+      				<input type="text" placeholder="Last " formControlName="claimantLastName">
+   					</div>
+   			</div>
+   			
+  </div>
+  <!-- Row 1 -->
+  
+  <div class="form-row">
+    		<div class="form-field">
+      				<label>Claim Number:</label>
+      				<input type="text" placeholder="search" formControlName="claimNumber">
+    		</div>
+   <!-- From / To Incident Dates -->
+  	
+    
+    		<div class="form-field">
+    				<label>From Incident Date:</label>&nbsp;&nbsp;
+      				<input type="date" placeholder="From" formControlName="fromIncidentDate">
+      		</div>
+      		<div class="form-field">		
+      				<label>To Incident Date:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      				<input type="date" placeholder="To" formControlName="toIncidentDate">
+    		</div>
+    		<div class="form-field">
+    						<label>SSN : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      						<input type="text" placeholder="XXX-XX-XXXX" formControlName="status">
+      				</div>
+  		
+	 </div>
+  <!-- SSN + Status -->
+ 		<div class="form-row"> 
+   					
+      				<div class="form-field">	
+      						<label>Status:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      						<select formControlName="status">
+        					<option value="">Select</option>
+        					<option value="Open">Open</option>
+            				<option value="Re-open">Re-open</option>
+            				<option value="Close">Close</option>
+      						</select>
+    				</div>
+  	
+
+  <!-- Employee Number + Affiliation Claim Number -->
+  		
+   
+    				<div class="form-field">
+       						<label>Employee Number</label>&nbsp;&nbsp;&nbsp;&nbsp;
+      						<input type="text" placeholder="Search" formControlName="employeeNumber">
+      				</div>	
+      				<div class="form-field">	
+      						<label> Affiliation Claim No.:</label>&nbsp;&nbsp;
+      						<input type="text" placeholder="Search" formControlName="affiliationClaimNumber">
+      						
+    				</div>
+    				<div class="form-field">
+      						<label>Examiner:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      						<input type="text" placeholder="search" formControlName="examiner">
+   		 			</div>
+  		
+  </div>
+  
+  
+  
+  <!-- Row 3 -->
+   <div class="form-row">
+ 		 
+   		 <div class="form-field">
+      			<label>Employer:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      			<input type="text" placeholder="search" formControlName="employee">
+   		 </div>
+    	<div class="form-field">
+      			<label>Program:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      			<input type="text" placeholder="search" formControlName="program" >
+    	</div>
+   		 <div class="form-field">
+     			 <label>Claimant Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      			<select formControlName="claimantType">
+        		<option value="">Select</option>
+				<option value="">Pending</option>
+				<option value="">TD</option>
+				<option value="">Fastrack</option>
+     			 </select>
+   		 </div>
+   		 <div class="form-field">
+      			<label>Organization 1:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      			<select formControlName="org1">
+        		<option value="">Select</option>
+        		<option value="Org1">Organization A</option>
+         		<option value="Org2">Organization B</option>
+      			</select>
+    	</div>
+   		 
+  </div>
+
+
+  <!-- Row 4 -->
+  <div class="form-row">
+  			
+    		<div class="form-field">
+      				<label>Organization 2:</label>
+      				<select formControlName="org2">
+       				 <option value="">Select</option>
+       				 <option value="OrgA">Organization C</option>
+          			 <option value="OrgB">Organization D</option>
+      				</select>
+    		</div>
+    		<div class="form-field">
+      				<label>Jurisdiction Claim No.:</label>
+      				<input type="text" placeholder="search" formControlName="jurisdictionClaimNumber">
+   			</div>
+    		<div class="form-field">
+      				<label>Broker Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      				<select formControlName="brokerName">
+        			<option value="">Select</option>
+        			<option value="Broker1">Broker 1</option>
+          			<option value="Broker2">Broker 2</option>
+      				</select>
+   			 </div>
+   			 <div class="form-field">
+      				<label>Email Id:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      				<input type="text" placeholder="search" formControlName="email">
+    		</div>
+    		
+  </div>
+
+  <!-- Row 5 -->
+  <div class="form-row">
+  		
+    	<div class="form-field">
+      			<label>Phone Number:</label>
+      			<input type="text" placeholder="search" formControlName="cell_Phone">
+    	</div>
+    	<div class="form-field">
+     			 <label>DOB:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      			 <input type="date" placeholder="MM-DD-YYYY" formControlName="birth_date">
+    	</div>
+    	<div class="form-field">
+      			<label>Adjusting Officer:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      			<select formControlName="adjustingOfficer">
+        		<option value="">Select</option>
+        		<option value="">Sunrise Claim Office</option>
+        		<option value="">Oceanic Claim Office</option>
+      			</select>
+    	</div>
+  </div>
+ 
+  
+	<!-- Button Bar -->
+  <div class="button-bar">
+    <button type="submit"  class="btn search-btn" (click)="onSearch()"><fa-icon [icon]="faSearch"></fa-icon> Search</button> 
+    <button type="reset" class="btn reset-btn" (click)="onReset()"><fa-icon [icon]="faReset"></fa-icon> Reset</button>
+	<button type="button" class="btn download-btn" (click)="exportSelectedToExcel()"> <fa-icon [icon]="faDownload"></fa-icon>Download Excel</button>
+    <button type="button" class="btn download-btn" (click)="exportSelectedToCSV()"> <fa-icon [icon]="faDownload"></fa-icon>Download CSV</button>  </div>
+</form>
+
+
+
+ <div class="table-container">
+  <table class="claims-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleSelectAll($event)">SELECT</th>
+        <th>CLAIM #</th>
+        <th >
+       
+         <span class="header-text">CLAIM ID</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp"  (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown"  (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter" ></fa-icon>
+  		</span>
+    	
+        </th>
+        <th>
+        <span class="header-text">ADJ OFFICE</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">CLAIMANT&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">SSN&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">STATUS&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">INCIDENT DATE&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">TYPE&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">BROKER NAME&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">INSURED&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">EXAMINER&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">SUPERVISOR&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">ACCEPTED&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">DENIED&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">CLOSED&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">EMPLOYEE&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">JURISDICTION&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">JURISDICTION CLAIM NUMBER&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">BODY PART&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">ORG1&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        <th>
+        <span class="header-text"> ORG2&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+       </th>
+        <th>
+        <span class="header-text">ADD DATE&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+        <th>
+        <span class="header-text">INSURER&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  			<span class="header-icons">
+    		<fa-icon [icon]="faArrowUp" (click)="sortColumn('claimId','asc')"></fa-icon>
+    		<fa-icon [icon]="faArrowDown" (click)="sortColumn('claimId','desc')"></fa-icon>
+    		<fa-icon [icon]="faFilter"></fa-icon>
+  		</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of claims">
+        <td>
+          <input
+            type="checkbox"
+            [(ngModel)]="claim.selected"
+          (change)="onRowSelectChange()"
+          />
+        </td>
+        <td><a [href]="'https://example.com/claims/' + claim.claim" target="_blank">{{ claim.claim }}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <fa-icon [icon]="faLink" class="link-icon"></fa-icon></td>
+        <td>{{ claim.claim_id }}</td>
+        <td>{{ claim.adj_office }}</td>
+        <td>{{ claim.claimant }}</td>
+        <td>{{ claim.ssn }}</td>
+        <td>{{ claim.status }}
+        <span *ngIf="claim.status === 'Open'" class="status-badge">R</span>
+        </td>
+        <td>{{ claim.incident_date }}</td>
+        <td>{{ claim.type }}</td>
+        <td>{{ claim.broker_name }}</td>
+        <td>{{ claim.insured }}</td>
+        <td>{{ claim.examiner }}</td>
+        <td>{{ claim.supervisor }}</td>
+        <td>{{ claim.accepted }}</td>
+        <td>{{ claim.denied }}</td>
+        <td>{{ claim.closed }}</td>
+        <td>{{ claim.employee }}</td>
+        <td>{{ claim.jurisdiction }}</td>
+        <td>{{ claim.jurisdiction_claim_number }}</td>
+        <td>{{ claim.body_part }}</td>
+        <td>{{ claim.org1 }}</td>
+        <td>{{ claim.org2 }}</td>
+        <td>{{ claim.add_date }}</td>
+        <td>{{ claim.insurer }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button>&laquo; Prev</button>
+    <span>Page {{ currentPage }}</span>
+    <button>Next &raquo;</button>
+  </div>
+</div>
